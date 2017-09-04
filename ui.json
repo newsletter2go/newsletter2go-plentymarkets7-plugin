@@ -1,0 +1,12 @@
+{
+  "defaultEntryPoint": "index.html",
+  "namespace": "Newsletter2Go",
+  "menuEntries": [
+    {
+      "label": "Newsletter2Go",
+      "menu": "start",
+      "urlKey": "newsletter2go",
+      "entryPoint": "index.html"
+    }
+  ]
+}

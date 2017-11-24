@@ -1,10 +1,8 @@
 {
-      "name":"Newsletter2Go",
-      "description":"My first plugin",
-      "namespace":"Newsletter2Go",
-      "author":"Test",
-      "type":"template",
-      "version": "1.0.0",
-      "serviceProvider":"Newsletter2Go\\Providers\\Newsletter2GoServiceProvider",
-      "javaScriptFiles": []
+    "name"              :"Newsletter2Go",
+    "description"       :"Integrator plugin for Newsletter2Go",
+    "namespace"         :"Newsletter2Go",
+    "author"            :"risto.kekovic",
+    "type"              :"template",
+    "serviceProvider"   :"Newsletter2Go\\Providers\\Newsletter2GoServiceProvider"
 }

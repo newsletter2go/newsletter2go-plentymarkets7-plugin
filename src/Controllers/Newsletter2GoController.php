@@ -4,30 +4,53 @@ namespace Newsletter2Go\Controllers;
 
 use Plenty\Modules\Account\Contact\Contracts\ContactClassRepositoryContract;
 use Plenty\Plugin\Controller;
-use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Account\Contact\Contracts\ContactRepositoryContract;
 use Plenty\Plugin\Http\Request;
 use Plenty\Repositories\Models\PaginatedResult;
 
 class Newsletter2GoController extends Controller
 {
-    private $url = 'https://logeecom.plentymarkets-cloud01.com/';
-    private $apiKey = '';
+    private $version = 1.0;
 
-    public function test(Twig $twig)
+    /**
+     * @return bool
+     */
+    public function test()
+    {
+        $response['test'] = true;
+        $response['success'] = true;
+        return $response;
+    }
+
+    /**
+     * @param Request $request
+     * @return float
+     */
+    public function version(Request $request)
+    {
+        $response['data'] = $this->version;
+        $response['success'] = true;
+        return $response;
+    }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function customerCount(Request $request)
     {
         /** @var ContactRepositoryContract $contactRepository */
         $contactRepository = pluginApp(ContactRepositoryContract::class);
-        $contacts = $contactRepository->getContactList();
+        $contacts = $this->customers($request);
 
-        return $contacts;
+        return count($contacts);
     }
 
     /**
      * Returns all customers on the system
      *
      * @param Request $request
-     * @return \Plenty\Repositories\Models\PaginatedResult
+     * @return array
      */
     public function customers(Request $request)
     {
@@ -35,47 +58,35 @@ class Newsletter2GoController extends Controller
             FILTER_VALIDATE_BOOLEAN);
         $page = $request->get('page', 1);
         $limit = $request->get('limit', 50);
-        $fields = $request->get('fields', 'id,firstName,lastName,newsletterAllowanceAt,classId');
-        $fields = explode(",", $fields);
-        $group = $request->get('group', null);
+        $hours = $request->get('hours', null);
+        $emails = $request->get('emails', []);
+        $fields = $request->get('fields', ['id','firstName','lastName','newsletterAllowanceAt','classId','updatedAt','gender', 'birthdayAt']);
+        $groups = $request->get('groups', []);
         /** @var ContactRepositoryContract $contactRepository */
         $contactRepository = pluginApp(ContactRepositoryContract::class);
         $contacts = $contactRepository->getContactList([], [], $fields, $page, $limit)->getResult();
         $filteredContacts = [];
-        $groupNumber = 0;
 
-        if ($group != null) {
-            /** @var ContactClassRepositoryContract $contactClassRepository */
-            $contactClassRepository = pluginApp(ContactClassRepositoryContract::class);
-            $classes = $contactClassRepository->allContactClasses();
-
-            foreach ($classes as $key => $value) {
-                if ($value == $group) {
-                    $groupNumber = $key;
+        foreach ($contacts as $contact) {
+            if ($this->checkEmail($contact['email'])) {
+                if ($newsletterSubscribersOnly && $contact['newsletterAllowanceAt'] === null) {
+                    continue;
+                } else {
+                    if (!empty($groups) && in_array($contact['classId'], $groups)) {
+                        array_push($filteredContacts, $contact);
+                    } elseif (empty($groups)) {
+                        array_push($filteredContacts, $contact);
+                    }
                 }
             }
         }
 
-        foreach ($contacts as $contact) {
-            if ($this->checkEmail($contact['email'])) {
-                if ($newsletterSubscribersOnly && $contact['newsletterAllowanceAt'] != null) {
-                    if ($group != null && $contact['classId'] == $groupNumber) {
-                        array_push($filteredContacts, $contact);
-                    }
-                    if ($group == null) {
-                        array_push($filteredContacts, $contact);
-                    }
-                }
+        if ($hours != null) {
+            $filteredContacts = $this->checkHours($filteredContacts, $hours);
+        }
 
-                if (!$newsletterSubscribersOnly) {
-                    if ($group != null && $contact['classId'] == $groupNumber) {
-                        array_push($filteredContacts, $contact);
-                    }
-                    if ($group == null) {
-                        array_push($filteredContacts, $contact);
-                    }
-                }
-            }
+        if (!empty($emails)) {
+            $filteredContacts = $this->filterEmails($filteredContacts, $emails);
         }
 
         return $filteredContacts;
@@ -98,5 +109,30 @@ class Newsletter2GoController extends Controller
         }
 
         return false;
+    }
+
+    public function checkHours($contacts, $hours)
+    {
+        $hoursContacts = [];
+        $timestamp = date('m-d g:Ga', strtotime('-' . $hours . ' hours', strtotime(date('Y-m-d H:i:s'))));
+        foreach ($contacts as $contact) {
+            if (strtotime($contact['updatedAt']) > strtotime($timestamp)) {
+                array_push($hoursContacts, $contact);
+            }
+        }
+
+        return $hoursContacts;
+    }
+
+    public function filterEmails($contacts, $emails)
+    {
+        $emailContacts = [];
+        foreach ($contacts as $contact) {
+            if (in_array($contact['email'], $emails)) {
+                array_push($emailContacts, $contact);
+            }
+        }
+
+        return $emailContacts;
     }
 }

@@ -73,37 +73,40 @@ class ApiController extends Controller
         $limit = $request->get('limit', 50);
         $hours = $request->get('hours', 0);
         $emails = $request->get('emails', []);
-        $fields = $request->get(
-            'fields',
-            ['id', 'firstName', 'lastName', 'newsletterAllowanceAt', 'classId', 'updatedAt', 'gender', 'birthdayAt']
-        );
-
         $groups = $request->get('groups', []);
+        $fields = $request->get('fields', ['*']);
+
+        if (!is_numeric($hours)) {
+            return ['success' => false, 'message' => 'Hours parameter must be numeric value.'];
+        }
+
         /** @var ContactRepositoryContract $contactRepository */
         $contactRepository = pluginApp(ContactRepositoryContract::class);
         $contacts = $contactRepository->getContactList([], [], $fields, $page, $limit)->getResult();
         $filteredContacts = [];
 
         foreach ($contacts as $contact) {
-            if ($this->dataHelper->checkEmail($contact['email'])) {
-                if ($newsletterSubscribersOnly && $contact['newsletterAllowanceAt'] === null) {
-                    continue;
-                } else {
-                    if (!empty($groups) && in_array($contact['classId'], $groups)) {
-                        array_push($filteredContacts, $contact);
-                    } elseif (empty($groups)) {
-                        array_push($filteredContacts, $contact);
-                    }
-                }
+            if (!$this->dataHelper->checkEmailDomain($contact['email'])) {
+                continue;
             }
-        }
 
-        if ($hours != null) {
-            $filteredContacts = $this->dataHelper->checkHours($filteredContacts, $hours);
-        }
+            if ($hours && !$this->dataHelper->checkHours($contact, $hours)) {
+                continue;
+            }
 
-        if (!empty($emails)) {
-            $filteredContacts = $this->dataHelper->filterEmails($filteredContacts, $emails);
+            if (!empty($emails) && !in_array($contact['email'], $emails)) {
+                continue;
+            }
+
+            if (!empty($groups) && !in_array($contact['classId'], $groups)) {
+                continue;
+            }
+
+            if ($newsletterSubscribersOnly && $contact['newsletterAllowanceAt'] === null) {
+                continue;
+            }
+
+            $filteredContacts[] = $contact;
         }
 
         return $filteredContacts;

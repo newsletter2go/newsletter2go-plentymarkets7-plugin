@@ -4,64 +4,38 @@ namespace Newsletter2Go\Helpers;
 
 class Data
 {
+    const NOT_ALLOWED_DOMAINS = ['amazon.com'];
+
     /**
+     * Validates email domain
+     *
      * @param string $email
      *
      * @return bool
      */
-    public function checkEmail(string $email): bool
+    public function checkEmailDomain(string $email): bool
     {
-        $notAllowed = ['amazon.com'];
-
         // Make sure the address is valid
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $explodedEmail = explode('@', $email);
-            $domain = array_pop($explodedEmail);
-
-            if (in_array($domain, $notAllowed)) {
-                return false;
-            }
-
-            return true;
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return false;
         }
 
-        return false;
+        $explodedEmail = explode('@', $email);
+        $domain = array_pop($explodedEmail);
+
+        return !in_array($domain, static::NOT_ALLOWED_DOMAINS);
     }
 
     /**
-     * @param array $contacts
+     * @param array $contact
      * @param int $hours
      *
-     * @return array
+     * @return bool
      */
-    public function checkHours(array $contacts, int $hours): array
+    public function checkHours(array $contact, int $hours): bool
     {
-        $hoursContacts = [];
         $timestamp = date('m-d g:Ga', strtotime('-' . $hours . ' hours', strtotime(date('Y-m-d H:i:s'))));
-        foreach ($contacts as $contact) {
-            if (strtotime($contact['updatedAt']) > strtotime($timestamp)) {
-                array_push($hoursContacts, $contact);
-            }
-        }
 
-        return $hoursContacts;
-    }
-
-    /**
-     * @param array $contacts
-     * @param array $emails
-     *
-     * @return array
-     */
-    public function filterEmails(array $contacts, array $emails): array
-    {
-        $emailContacts = [];
-        foreach ($contacts as $contact) {
-            if (in_array($contact['email'], $emails)) {
-                array_push($emailContacts, $contact);
-            }
-        }
-
-        return $emailContacts;
+        return strtotime($contact['updatedAt']) >= strtotime($timestamp);
     }
 }

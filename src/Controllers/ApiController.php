@@ -3,7 +3,6 @@
 namespace Newsletter2Go\Controllers;
 
 use Newsletter2Go\Helpers\Data;
-use Plenty\Modules\Account\Contact\Contracts\ContactRepositoryContract;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 
@@ -37,7 +36,7 @@ class ApiController extends Controller
      */
     public function version()
     {
-        return ['data' => '1.0.0', 'success' => true];
+        return ['data' => '4.0.00', 'success' => true];
     }
 
     /**
@@ -65,7 +64,7 @@ class ApiController extends Controller
      */
     public function customers(Request $request)
     {
-        $newsletterSubscribersOnly = filter_var(
+        $subscribed = filter_var(
             $request->get('newsletterSubscribersOnly', false),
             FILTER_VALIDATE_BOOLEAN
         );
@@ -73,43 +72,25 @@ class ApiController extends Controller
         $limit = $request->get('limit', 50);
         $hours = $request->get('hours', 0);
         $emails = $request->get('emails', []);
-        $groups = $request->get('groups', []);
-        $fields = $request->get('fields', ['*']);
+        $group = $request->get('group');
 
         if (!is_numeric($hours)) {
             return ['success' => false, 'message' => 'Hours parameter must be numeric value.'];
+        } else {
+            $hours = intval($hours);
         }
 
-        /** @var ContactRepositoryContract $contactRepository */
-        $contactRepository = pluginApp(ContactRepositoryContract::class);
-        $contacts = $contactRepository->getContactList([], [], $fields, $page, $limit)->getResult();
-        $filteredContacts = [];
-
-        foreach ($contacts as $contact) {
-            if (!$this->dataHelper->checkEmailDomain($contact['email'])) {
-                continue;
-            }
-
-            if ($hours && !$this->dataHelper->checkHours($contact, $hours)) {
-                continue;
-            }
-
-            if (!empty($emails) && !in_array($contact['email'], $emails)) {
-                continue;
-            }
-
-            if (!empty($groups) && !in_array($contact['classId'], $groups)) {
-                continue;
-            }
-
-            if ($newsletterSubscribersOnly && $contact['newsletterAllowanceAt'] === null) {
-                continue;
-            }
-
-            $filteredContacts[] = $contact;
+        if (!$group) {
+            return ['success' => false, 'message' => 'Group parameter is required.'];
         }
 
-        return $filteredContacts;
+        if (strpos($group, 'newsletter_') === 0) {
+            $group = str_replace('newsletter_', '', $group);
+
+            return $this->dataHelper->getRecipients($group, $subscribed, $hours, $emails);
+        } else {
+            return $this->dataHelper->getContacts($group, $subscribed, $hours, $emails, $page, $limit);
+        }
     }
 
 }

@@ -58,15 +58,13 @@ class Data
      * @param array $contact
      * @param int $hours
      *
-     * @param string $field
-     *
      * @return bool
      */
-    public function checkHours(array $contact, int $hours, string $field = 'updatedAt'): bool
+    public function checkHours(array $contact, int $hours): bool
     {
         $timestamp = date('m-d g:Ga', strtotime('-' . $hours . ' hours'));
 
-        return strtotime($contact[$field]) >= strtotime($timestamp);
+        return strtotime($contact['updatedAt']) >= strtotime($timestamp);
     }
 
     /**
@@ -135,7 +133,8 @@ class Data
                 continue;
             }
 
-            if ($hours && !$this->checkHours($recipient, $hours, 'timestamp')) {
+            $recipient['updatedAt'] = $recipients['timestamp'];
+            if ($hours && !$this->checkHours($recipient, $hours)) {
                 continue;
             }
 

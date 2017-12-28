@@ -80,16 +80,16 @@ class ApiController extends Controller
             $hours = intval($hours);
         }
 
-        if (!$group) {
+        if (!isset($group)) {
             return ['success' => false, 'message' => 'Group parameter is required.'];
         }
 
         if (strpos($group, 'newsletter_') === 0) {
             $group = str_replace('newsletter_', '', $group);
 
-            return $this->dataHelper->getRecipients($group, $subscribed, $hours, $emails);
+            return $this->dataHelper->getRecipients(intval($group), $subscribed, $hours, $emails);
         } else {
-            return $this->dataHelper->getContacts($group, $subscribed, $hours, $emails, $page, $limit);
+            return $this->dataHelper->getContacts(intval($group), $subscribed, $hours, $emails, $page, $limit);
         }
     }
 

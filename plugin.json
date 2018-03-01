@@ -1,9 +1,18 @@
 {
   "name": "Newsletter2Go",
-  "description": "Integrator plugin for Newsletter2Go",
   "namespace": "Newsletter2Go",
   "author": "Newsletter2Go",
   "type": "template",
   "serviceProvider": "Newsletter2Go\\Providers\\ServiceProvider",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "license"           : "The license for the plugin",
+  "isClosedSource"    : "Determines if your plugin is closed source or open source",
+  "pluginIcon"        : "The plugin icon",
+  "price"             : 0.00,
+  "description"       : "The description for your plugin",
+  "shortDescription"  : {"de":"Erstellen und gestalten Sie anspruchsvolle E-Mail Marketing Kampagnen direkt in Ihrem Browser.","en":"Create and design sophisticated email marketing campaigns right in your browser."},
+  "categories"        : ["3517", "3518"],
+  "keywords"          : ["plugins", "template"],
+  "authorIcon"        : "The author icon",
+  "email"             : "info@newsletter2go.com"
 }

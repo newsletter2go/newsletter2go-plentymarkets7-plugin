@@ -2,17 +2,18 @@
   "name": "Newsletter2Go",
   "namespace": "Newsletter2Go",
   "author": "Newsletter2Go",
-  "type": "template",
+  "type": "integration",
   "serviceProvider": "Newsletter2Go\\Providers\\ServiceProvider",
   "version": "1.0.0",
   "license"           : "GPL-3.0",
-  "isClosedSource"    : "Determines if your plugin is closed source or open source",
+  "isClosedSource"    : "false",
   "pluginIcon"        : "icon_plugin_xs.png",
   "price"             : 0.00,
   "description"       : "Newsletter2Go ist eine E-Mail Marketing Software, mit der Sie mühelos professionelle Newsletter und anspruchsvolle automatisierte Kampagnen erstellen und versenden können. Mit der Plentymarkets-Newsletter-Integration von Newsletter2Go verbinden Sie Ihren Shop im Handumdrehen mit der Newsletter Software.",
   "shortDescription"  : {"de":"Erstellen und gestalten Sie anspruchsvolle E-Mail Marketing Kampagnen direkt in Ihrem Browser.","en":"Create and design sophisticated email marketing campaigns right in your browser."},
-  "categories"        : ["3521", "3600", "3523"],
+  "categories"        : [3521],
   "keywords"          : ["Newsletter Software", "E-Mail Marketing", "E-Mail Marketing Software", "Newsletter erstellen", "Newsletter versenden"],
   "authorIcon"        : "icon_author_xs.png",
   "email"             : "info@newsletter2go.com"
+  "marketplaceName": {"de":"Newsletter2Go - E-Mail Marketing Software","en":"Newsletter2Go -  E-Mail Marketing Software"}
 }

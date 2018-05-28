@@ -123,18 +123,11 @@ class Data
      *
      * @return array
      */
-    public function getRecipients(int $groupId, bool $subscribed, int $hours, array $emails, $page, $limit): array
+    public function getRecipients(int $groupId, bool $subscribed, int $hours, array $emails): array
     {
         $result = [];
 
-        $paginatedResult = $this->newsletterRepository->listAllRecipients([
-            'folderId' => $groupId,
-            'page' => $page,
-            'itemsPerPage' => $limit
-        ]);
-        $hasNextPage = !$paginatedResult->isLastPage();
-        $recipients = $paginatedResult->getResult();
-
+        $recipients = $this->newsletterRepository->listAllRecipients(['folderId' => $groupId]);
         foreach ($recipients as $recipient) {
             if (!$this->checkEmailDomain($recipient['email'])) {
                 continue;
@@ -162,6 +155,6 @@ class Data
             $result[] = $recipient;
         }
 
-        return ['data' => $result, 'success' => true, 'hasNextPage' => $hasNextPage];
+        return ['data' => $result, 'success' => true, 'hasNextPage' => false];
     }
 }

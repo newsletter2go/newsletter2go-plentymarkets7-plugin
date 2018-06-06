@@ -4,7 +4,7 @@
   "author": "Newsletter2Go",
   "type": "integration",
   "serviceProvider": "Newsletter2Go\\Providers\\ServiceProvider",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license"           : "GPL-3.0",
   "isClosedSource"    : false,
   "pluginIcon"        : "icon_plugin_xs.png",

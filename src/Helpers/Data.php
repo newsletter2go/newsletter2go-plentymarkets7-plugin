@@ -127,11 +127,13 @@ class Data
     {
         $result = [];
 
-        $paginatedResult = $this->newsletterRepository->listRecipients([
-            'folderId' => $groupId,
-            'page' => $page,
-            'itemsPerPage' => $limit
-        ]);
+        $paginatedResult = $this->newsletterRepository->listRecipients(
+            ['*'],
+            $page,
+            $limit,
+            $groupId,
+            []
+        );
         $hasNextPage = !$paginatedResult->isLastPage();
         $recipients = $paginatedResult->getResult();
 

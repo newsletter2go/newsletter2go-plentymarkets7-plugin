@@ -131,7 +131,7 @@ class Data
             ['*'],
             $page,
             $limit,
-            $groupId,
+            ['folderId' =>$groupId],
             []
         );
         $hasNextPage = !$paginatedResult->isLastPage();

@@ -87,7 +87,7 @@ class ApiController extends Controller
         if (strpos($group, 'newsletter_') === 0) {
             $group = str_replace('newsletter_', '', $group);
 
-            return $this->dataHelper->getRecipients(intval($group), $subscribed, $hours, $emails);
+            return $this->dataHelper->getRecipients(intval($group), $subscribed, $hours, $emails, $page, $limit);
         } else {
             return $this->dataHelper->getContacts(intval($group), $subscribed, $hours, $emails, $page, $limit);
         }

@@ -127,7 +127,7 @@ class Data
     {
         $result = [];
 
-        $paginatedResult = $this->newsletterRepository->listAllRecipients([
+        $paginatedResult = $this->newsletterRepository->listRecipients([
             'folderId' => $groupId,
             'page' => $page,
             'itemsPerPage' => $limit

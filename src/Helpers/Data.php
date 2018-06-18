@@ -163,7 +163,6 @@ class Data
             $recipient['confirmationdateTypeInt'] = is_int($recipients['confirmedTimestamp']);
             $recipient['confirmationdateTypeObj'] = is_object($recipients['confirmedTimestamp']);
             $recipient['confirmationdateTypeAeeay'] = is_array($recipients['confirmedTimestamp']);
-            $recipient['confirmationdateTypeInstance'] = $recipients['confirmedTimestamp'] instanceof \DateTime;
             $recipient['confirmationdateExport'] = json_encode($recipients['confirmedTimestamp']);
             $recipient['confirmationdateVal'] = intval($recipients['confirmedTimestamp']);
 

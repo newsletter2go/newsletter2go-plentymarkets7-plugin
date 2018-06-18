@@ -151,7 +151,8 @@ class Data
                 continue;
             }
 
-            $recipient['newsletterAllowanceAt'] = (int)((string)$recipients['confirmedTimestamp'] !== '0000-00-00 00:00:00');
+            var_dump($recipient);
+            $recipient['newsletterAllowanceAt'] = (int)((string)$recipients['confirmedTimestamp'] != '0000-00-00 00:00:00');
             // if recipient is not confirmed then he is not subscribed
 //            if (!$recipients['newsletterAllowanceAt']) {
 //                continue;

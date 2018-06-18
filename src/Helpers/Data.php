@@ -163,7 +163,7 @@ class Data
             $recipient['confirmationdateTypeInt'] = is_int($recipients['confirmedTimestamp']);
             $recipient['confirmationdateTypeObj'] = is_object($recipients['confirmedTimestamp']);
             $recipient['confirmationdateTypeAeeay'] = is_array($recipients['confirmedTimestamp']);
-            $recipient['confirmationdateExport'] = json_encode($recipients['confirmedTimestamp']);
+            $recipient['confirmationdateExport'] = json_encode($recipients['confirmedTimestamp'], true);
             $recipient['confirmationdateVal'] = intval($recipients['confirmedTimestamp']);
 
             $recipient['confirmationdateBool'] = (strtotime($recipients['confirmedTimestamp']) < 0 ||

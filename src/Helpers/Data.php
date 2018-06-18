@@ -159,9 +159,9 @@ class Data
 
             }
             $recipient['confirmationdateTime'] = strtotime($recipients['confirmedTimestamp']);
-            $recipient['confirmationdateType'] = is_string($recipients['confirmedTimestamp']);
-            $recipient['confirmationdateCrazy'] = serialize($recipients['confirmedTimestamp']);
-            $recipient['confirmationdateExport'] = var_export($recipients['confirmedTimestamp']);
+            $recipient['confirmationdateTypeString'] = is_string($recipients['confirmedTimestamp']);
+            $recipient['confirmationdateTypeString'] = is_int($recipients['confirmedTimestamp']);
+            $recipient['confirmationdateExport'] = $recipients['confirmedTimestamp'];
 
             $recipient['confirmationdateBool'] = (strtotime($recipients['confirmedTimestamp']) < 0 ||
                 strtotime($recipients['confirmedTimestamp']) === false);

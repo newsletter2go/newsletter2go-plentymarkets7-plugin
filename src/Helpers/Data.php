@@ -151,7 +151,7 @@ class Data
                 continue;
             }
 
-            $recipient['confirmationdateBool '] =$recipients['confirmedTimestamp'] > 0;
+            $recipient['confirmationdateBool '] = $recipients['confirmedTimestamp'] >  strtotime('0000-00-00 00:00:00');
             $recipient['newsletterAllowanceAt'] = (int)((string)$recipients['confirmedTimestamp'] != '0000-00-00 00:00:00');
             // if recipient is not confirmed then he is not subscribed
 //            if (!$recipients['newsletterAllowanceAt']) {

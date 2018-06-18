@@ -110,7 +110,7 @@ class Data
             $filteredContacts[] = $contact;
         }
 
-        return ['data' => $filteredContacts, 'success' => true, 'hasNextPage' => $hasNextPage];
+        return ['data' => $filteredContacts, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page];
     }
 
     /**
@@ -153,17 +153,17 @@ class Data
 
             $recipient['newsletterAllowanceAt'] = (int)((string)$recipients['confirmedTimestamp'] !== '0000-00-00 00:00:00');
             // if recipient is not confirmed then he is not subscribed
-            if ($subscribed && !$recipients['newsletterAllowanceAt']) {
+            if (!$recipients['newsletterAllowanceAt']) {
                 continue;
             }
 
             if ($recipient['contactId']) {
-                $recipient = $this->repositoryContract->findContactById($recipient['contactId'])->toArray();
+                $recipient = array_merge($recipient, $this->repositoryContract->findContactById($recipient['contactId'])->toArray());
             }
 
             $result[] = $recipient;
         }
 
-        return ['data' => $result, 'success' => true, 'hasNextPage' => $hasNextPage];
+        return ['data' => $result, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page];
     }
 }

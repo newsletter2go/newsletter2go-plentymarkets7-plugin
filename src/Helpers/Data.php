@@ -110,7 +110,14 @@ class Data
             $filteredContacts[] = $contact;
         }
 
-        return ['data' => $filteredContacts, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page,  'totalPages' => $paginatedResult->getLastPage()];
+        return [
+            'data' => $filteredContacts,
+            'success' => true,
+            'hasNextPage' => $hasNextPage,
+            'limit' => $limit,
+            'page' => $page,
+            'totalPages' => $paginatedResult->getLastPage()
+        ];
     }
 
     /**
@@ -131,7 +138,7 @@ class Data
             ['*'],
             $page,
             $limit,
-            ['folderId' =>$groupId],
+            ['folderId' => $groupId],
             []
         );
         $hasNextPage = !$paginatedResult->isLastPage();
@@ -151,7 +158,8 @@ class Data
                 continue;
             }
 
-            $recipient['confirmationdateBool '] = $recipients['confirmedTimestamp'] >  strtotime('0000-00-00 00:00:00');
+            $recipient['confirmationdateBool '] = (strtotime($recipients['confirmedTimestamp']) < 0 ||
+                strtotime($recipients['confirmedTimestamp']) === false);
             $recipient['newsletterAllowanceAt'] = (int)((string)$recipients['confirmedTimestamp'] != '0000-00-00 00:00:00');
             // if recipient is not confirmed then he is not subscribed
 //            if (!$recipients['newsletterAllowanceAt']) {
@@ -165,6 +173,13 @@ class Data
             $result[] = $recipient;
         }
 
-        return ['data' => $result, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page, 'totalPages' => $paginatedResult->getLastPage()];
+        return [
+            'data' => $result,
+            'success' => true,
+            'hasNextPage' => $hasNextPage,
+            'limit' => $limit,
+            'page' => $page,
+            'totalPages' => $paginatedResult->getLastPage()
+        ];
     }
 }

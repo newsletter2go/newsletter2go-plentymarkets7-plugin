@@ -159,6 +159,7 @@ class Data
 
             }
             $recipient['confirmationdateTime'] = strtotime($recipients['confirmedTimestamp']);
+            $recipient['confirmationdateType'] = is_string($recipients['confirmedTimestamp']);
 
             $recipient['confirmationdateBool'] = (strtotime($recipients['confirmedTimestamp']) < 0 ||
                 strtotime($recipients['confirmedTimestamp']) === false);

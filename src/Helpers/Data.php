@@ -157,13 +157,13 @@ class Data
 //                continue;
 //            }
 
-            if ($recipient['contactId']) {
-                $recipient = array_merge($recipient, $this->repositoryContract->findContactById($recipient['contactId'])->toArray());
-            }
+//            if ($recipient['contactId']) {
+//                $recipient = array_merge($recipient, $this->repositoryContract->findContactById($recipient['contactId'])->toArray());
+//            }
 
             $result[] = $recipient;
         }
 
-        return ['data' => $result, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page];
+        return ['data' => $result, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page, 'totalPages' => $paginatedResult->getLastPageNumber()];
     }
 }

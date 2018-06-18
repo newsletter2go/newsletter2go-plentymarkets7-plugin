@@ -110,7 +110,7 @@ class Data
             $filteredContacts[] = $contact;
         }
 
-        return ['data' => $filteredContacts, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page];
+        return ['data' => $filteredContacts, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page,  'totalPages' => $paginatedResult->getLastPage()];
     }
 
     /**
@@ -164,6 +164,6 @@ class Data
             $result[] = $recipient;
         }
 
-        return ['data' => $result, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page, 'totalPages' => $paginatedResult->getLastPageNumber()];
+        return ['data' => $result, 'success' => true, 'hasNextPage' => $hasNextPage, 'limit' => $limit, 'page' => $page, 'totalPages' => $paginatedResult->getLastPage()];
     }
 }

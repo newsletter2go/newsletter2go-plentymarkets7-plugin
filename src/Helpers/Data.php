@@ -156,9 +156,11 @@ class Data
 
             if (!empty($emails) && !in_array($recipient['email'], $emails)) {
                 continue;
-            }
 
-            $recipient['confirmationdateBool '] = (strtotime($recipients['confirmedTimestamp']) < 0 ||
+            }
+            $recipient['confirmationdateTime'] = strtotime($recipients['confirmedTimestamp']);
+
+            $recipient['confirmationdateBool'] = (strtotime($recipients['confirmedTimestamp']) < 0 ||
                 strtotime($recipients['confirmedTimestamp']) === false);
             $recipient['newsletterAllowanceAt'] = (int)((string)$recipients['confirmedTimestamp'] != '0000-00-00 00:00:00');
             // if recipient is not confirmed then he is not subscribed

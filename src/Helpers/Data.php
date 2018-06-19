@@ -158,16 +158,19 @@ class Data
                 continue;
 
             }
-            $recipient['newsletterAllowanceAt'] = (strtotime($recipient['confirmedTimestamp']) < 0 ||
+            $recipient['newsletterAllowanceAt'] = !(strtotime($recipient['confirmedTimestamp']) < 0 ||
                 strtotime($recipient['confirmedTimestamp']) === false);
             // if recipient is not confirmed then he is not subscribed
             if (!$recipient['newsletterAllowanceAt']) {
                 continue;
             }
 
-//            if ($recipient['contactId']) {
-//                $recipient = array_merge($recipient, $this->repositoryContract->findContactById($recipient['contactId'])->toArray());
-//            }
+            if ($recipient['contactId']) {
+                $recipientContact = $this->repositoryContract->findContactById($recipient['contactId'])->toArray();
+                if ($recipientContact) {
+                    $recipient = array_merge($recipient, $recipientContact);
+                }
+            }
 
             $result[] = $recipient;
         }

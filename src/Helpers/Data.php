@@ -158,21 +158,12 @@ class Data
                 continue;
 
             }
-            $recipient['confirmationdateTime'] = strtotime($recipients['confirmedTimestamp']);
-            $recipient['confirmationdateTypeString'] = is_string($recipients['confirmedTimestamp']);
-            $recipient['confirmationdateTypeInt'] = is_int($recipients['confirmedTimestamp']);
-            $recipient['confirmationdateTypeObj'] = is_object($recipients['confirmedTimestamp']);
-            $recipient['confirmationdateTypeAeeay'] = is_array($recipients['confirmedTimestamp']);
-            
-            $recipient['confirmationdateVal'] = intval($recipients['confirmedTimestamp']);
-
-            $recipient['confirmationdateBool'] = (strtotime($recipients['confirmedTimestamp']) < 0 ||
-                strtotime($recipients['confirmedTimestamp']) === false);
-            $recipient['newsletterAllowanceAt'] = (int)((string)$recipients['confirmedTimestamp'] != '0000-00-00 00:00:00');
+            $recipient['newsletterAllowanceAt'] = (strtotime($recipient['confirmedTimestamp']) < 0 ||
+                strtotime($recipient['confirmedTimestamp']) === false);
             // if recipient is not confirmed then he is not subscribed
-//            if (!$recipients['newsletterAllowanceAt']) {
-//                continue;
-//            }
+            if (!$recipient['newsletterAllowanceAt']) {
+                continue;
+            }
 
 //            if ($recipient['contactId']) {
 //                $recipient = array_merge($recipient, $this->repositoryContract->findContactById($recipient['contactId'])->toArray());

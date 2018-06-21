@@ -110,7 +110,14 @@ class Data
             $filteredContacts[] = $contact;
         }
 
-        return ['data' => $filteredContacts, 'success' => true, 'hasNextPage' => $hasNextPage];
+        return [
+            'data' => $filteredContacts,
+            'success' => true,
+            'hasNextPage' => $hasNextPage,
+            'limit' => $limit,
+            'page' => $page,
+            'totalPages' => $paginatedResult->getLastPage()
+        ];
     }
 
     /**
@@ -127,11 +134,13 @@ class Data
     {
         $result = [];
 
-        $paginatedResult = $this->newsletterRepository->listAllRecipients([
-            'folderId' => $groupId,
-            'page' => $page,
-            'itemsPerPage' => $limit
-        ]);
+        $paginatedResult = $this->newsletterRepository->listRecipients(
+            ['*'],
+            $page,
+            $limit,
+            ['folderId' => $groupId],
+            []
+        );
         $hasNextPage = !$paginatedResult->isLastPage();
         $recipients = $paginatedResult->getResult();
 
@@ -147,21 +156,32 @@ class Data
 
             if (!empty($emails) && !in_array($recipient['email'], $emails)) {
                 continue;
-            }
 
-            $recipient['newsletterAllowanceAt'] = (int)((string)$recipients['confirmedTimestamp'] !== '0000-00-00 00:00:00');
+            }
+            $recipient['newsletterAllowanceAt'] = !(strtotime($recipient['confirmedTimestamp']) < 0 ||
+                strtotime($recipient['confirmedTimestamp']) === false);
             // if recipient is not confirmed then he is not subscribed
-            if ($subscribed && !$recipients['newsletterAllowanceAt']) {
+            if (!$recipient['newsletterAllowanceAt']) {
                 continue;
             }
 
             if ($recipient['contactId']) {
-                $recipient = $this->repositoryContract->findContactById($recipient['contactId'])->toArray();
+                $recipientContact = $this->repositoryContract->findContactById($recipient['contactId'])->toArray();
+                if ($recipientContact) {
+                    $recipient = array_merge($recipient, $recipientContact);
+                }
             }
 
             $result[] = $recipient;
         }
 
-        return ['data' => $result, 'success' => true, 'hasNextPage' => $hasNextPage];
+        return [
+            'data' => $result,
+            'success' => true,
+            'hasNextPage' => $hasNextPage,
+            'limit' => $limit,
+            'page' => $page,
+            'totalPages' => $paginatedResult->getLastPage()
+        ];
     }
 }

@@ -36,7 +36,7 @@ class ApiController extends Controller
      */
     public function version()
     {
-        return ['data' => '4.0.02', 'success' => true];
+        return ['data' => '4.0.03', 'success' => true];
     }
 
     /**

@@ -2,7 +2,7 @@
   "name": "Newsletter2Go",
   "namespace": "Newsletter2Go",
   "author": "Newsletter2Go",
-  "type": "integration",
+  "type": "Integration",
   "serviceProvider": "Newsletter2Go\\Providers\\ServiceProvider",
   "version": "1.0.3",
   "license"           : "GPL-3.0",

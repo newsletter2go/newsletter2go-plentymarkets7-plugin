@@ -1,11 +1,11 @@
 <?php
 
-namespace GoogleMapsWidget\Widgets;
+namespace Newsletter2Go\Widgets;
 use Ceres\Widgets\Helper\BaseWidget;
 
 class MapsWidget extends BaseWidget
 {
-    protected $template = "GoogleMapsWidget::Widgets.MapsWidget";
+    protected $template = "Newsletter2Go::Widgets.MapsWidget";
     protected function getTemplateData($widgetSettings, $isPreview)
     {
         $source = $widgetSettings["source"]["mobile"];

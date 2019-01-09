@@ -1,11 +1,11 @@
 [
   {
-    "identifier": "GoogleMapsWidget::MapsWidget",
+    "identifier": "Newsletter2Go::MapsWidget",
     "label": "Widget.mapsLabel",
     "previewImageURL": "",
     "type": "default",
     "position": 1050,
-    "widgetClass": "GoogleMapsWidget\\Widgets\\MapsWidget",
+    "widgetClass": "Newsletter2Go\\Widgets\\MapsWidget",
     "settings": {
       "source": {
         "type": "text",

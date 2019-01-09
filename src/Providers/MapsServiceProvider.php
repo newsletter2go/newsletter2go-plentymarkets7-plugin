@@ -1,5 +1,5 @@
 <?php
-namespace GoogleMapsWidget\Providers;
+namespace Newsletter2Go\Providers;
 use IO\Helper\TemplateContainer;
 use IO\Helper\ResourceContainer;
 use Plenty\Plugin\Events\Dispatcher;
@@ -16,7 +16,7 @@ class MapsServiceProvider extends ServiceProvider
     {
         $eventDispatcher->listen('IO.Resources.Import', function (ResourceContainer $container)
         {
-            $container->addScriptTemplate('GoogleMapsWidget::Content.Scripts');
+            $container->addScriptTemplate('Newsletter2Go::Content.Scripts');
         }, 0);
     }
 }

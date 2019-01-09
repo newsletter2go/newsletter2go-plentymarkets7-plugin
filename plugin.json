@@ -1,6 +1,6 @@
 {
-  "name": "GoogleMapsWidget",
-  "namespace": "GoogleMapsWidget",
+  "name": "Newsletter2Go",
+  "namespace": "Newsletter2Go",
   "require": ["Ceres", "IO"],
   "author": "Newsletter2Go",
   "type": "widgets",

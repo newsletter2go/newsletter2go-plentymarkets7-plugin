@@ -4,7 +4,7 @@
   "require": ["Ceres", "IO"],
   "author": "Newsletter2Go",
   "type": "widgets",
-  "serviceProvider": "GoogleMapsWidget\\Providers\\MapsServiceProvider",
+  "serviceProvider": "Newsletter2Go\\Providers\\MapsServiceProvider",
   "version": "1.0.3",
   "license"           : "GPL-3.0",
   "isClosedSource"    : false,

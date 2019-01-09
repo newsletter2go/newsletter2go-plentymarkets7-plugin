@@ -2,7 +2,7 @@
     {
         "identifier": "Newsletter2Go::MapsWidget",
         "label": "Widget.mapsLabel",
-        "previewImageURL": "/images/google-maps-widget.svg",
+        "previewImageURL": "/images/icon_author_sm.png",
         "type": "default",
         "position": 1050,
         "widgetClass": "Newsletter2Go\\Widgets\\MapsWidget",

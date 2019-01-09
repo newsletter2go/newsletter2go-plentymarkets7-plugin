@@ -15,24 +15,6 @@
                     "name": "Widget.mapsApiKeyLabel",
                     "tooltip": "Widget.mapsApiKeyTooltip"
                 }
-            },
-            "address": {
-                "type": "textarea",
-                "required": true,
-                "defaultValue": "",
-                "options": {
-                    "name": "Widget.mapsAddressLabel",
-                    "tooltip": "Widget.mapsAddressTooltip"
-                }
-            },
-            "zoom": {
-                "type": "number",
-                "required": false,
-                "defaultValue": 16,
-                "options": {
-                    "name": "Widget.mapsZoomLabel",
-                    "tooltip": "Widget.mapsZoomTooltip"
-                }
             }
         }
     }

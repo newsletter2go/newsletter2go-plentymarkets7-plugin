@@ -1,0 +1,1 @@
+{"version":3,"sources":["maps.scss"],"names":[],"mappings":"AAAA,wBAEQ,kBAAmB,CAF3B,wBAMQ,kBAAmB,CAN3B,wBAUQ,mBAAoB,CACvB","file":"maps.css","sourcesContent":[".maps-component {\n    &.map-3-1 {\n        padding-bottom: 33%;\n    }\n\n    &.map-2-1 {\n        padding-bottom: 50%;\n    }\n\n    &.map-1-1 {\n        padding-bottom: 100%;\n    }\n}"]}

@@ -4,7 +4,7 @@
         "label": "Widget.mapsLabel",
         "previewImageURL": "/images/icon_author_sm.png",
         "type": "default",
-        "position": 1050,
+        "position": 150,
         "widgetClass": "Newsletter2Go\\Widgets\\MapsWidget",
         "settings": {
             "apiKey": {

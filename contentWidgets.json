@@ -2,12 +2,12 @@
     {
         "identifier": "Newsletter2Go::MapsWidget",
         "label": "Widget.mapsLabel",
-        "previewImageURL": "/images/icon_author_sm.png",
+        "previewImageURL": "/images/n2go_plugin.svg",
         "type": "default",
         "position": 150,
         "widgetClass": "Newsletter2Go\\Widgets\\MapsWidget",
         "settings": {
-            "apiKey": {
+            "formKey": {
                 "type": "text",
                 "required": true,
                 "defaultValue": "",

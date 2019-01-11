@@ -10,7 +10,7 @@ class MapsWidget extends BaseWidget
 
     protected function getTemplateData($widgetSettings, $isPreview)
     {
-        $formKey = $widgetSettings["apiKey"]["mobile"];
+        $formKey = $widgetSettings["formKey"]["mobile"];
 
         if (empty($formKey))
         {

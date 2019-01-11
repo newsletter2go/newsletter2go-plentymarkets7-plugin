@@ -12,8 +12,8 @@
                 "required": true,
                 "defaultValue": "",
                 "options": {
-                    "name": "Widget.mapsApiKeyLabel",
-                    "tooltip": "Widget.mapsApiKeyTooltip"
+                    "name": "Widget.mapsFormKeyLabel",
+                    "tooltip": "Widget.mapsFormKeyTooltip"
                 }
             }
         }

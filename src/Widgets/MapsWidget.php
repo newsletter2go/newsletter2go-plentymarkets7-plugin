@@ -10,26 +10,20 @@ class MapsWidget extends BaseWidget
 
     protected function getTemplateData($widgetSettings, $isPreview)
     {
-        $apiKey = $widgetSettings["apiKey"]["mobile"];
+        $formKey = $widgetSettings["apiKey"]["mobile"];
 
-        if (empty($apiKey))
+        if (empty($formKey))
         {
             return [
-                "geocoding_data" => false
+                "formCode" => false
             ];
-        }
+        }else {
 
-        if ($apiKey)
-        {
             return [
-                "geocoding_data" => [
-                    "apiKey" => $apiKey
+                "formCode" => [
+                    "formKey" => $formKey
                 ]
             ];
         }
-
-        return [
-            "geocoding_data" => false
-        ];
     }
 }

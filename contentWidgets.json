@@ -2,7 +2,7 @@
     {
         "identifier": "Newsletter2Go::MapsWidget",
         "label": "Widget.mapsLabel",
-        "previewImageURL": "/images/n2go_plugin.svg",
+        "previewImageURL": "/images/n2go_widget_logo.svg",
         "type": "default",
         "position": 150,
         "widgetClass": "Newsletter2Go\\Widgets\\MapsWidget",

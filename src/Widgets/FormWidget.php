@@ -11,6 +11,7 @@ class FormWidget extends BaseWidget
     protected function getTemplateData($widgetSettings, $isPreview)
     {
         $formKey = $widgetSettings["formKey"]["mobile"];
+        $formConfig = $widgetSettings["formConfig"]["mobile"];
 
         if (empty($formKey))
         {
@@ -21,7 +22,8 @@ class FormWidget extends BaseWidget
 
             return [
                 "formCode" => [
-                    "formKey" => $formKey
+                    "formKey" => $formKey,
+                    "formConfig" => $formConfig
                 ]
             ];
         }

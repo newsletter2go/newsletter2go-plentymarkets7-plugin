@@ -1,5 +1,5 @@
 {
-    "serviceProvider": "Newsletter2Go\\Providers\\MapsServiceProvider",
+    "serviceProvider": "Newsletter2Go\\Providers\\FormServiceProvider",
     "version": "1.0.0",
     "name": "Newsletter2Go",
     "marketplaceName": { "de": "Newsletter2GoFormWidget", "en": "Newsletter2GoFormWidget" },

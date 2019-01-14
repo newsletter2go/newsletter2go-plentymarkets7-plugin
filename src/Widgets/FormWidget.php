@@ -4,9 +4,9 @@ namespace Newsletter2Go\Widgets;
 
 use Ceres\Widgets\Helper\BaseWidget;
 
-class MapsWidget extends BaseWidget
+class FormWidget extends BaseWidget
 {
-    protected $template = "Newsletter2Go::Widgets.MapsWidget";
+    protected $template = "Newsletter2Go::Widgets.FormWidget";
 
     protected function getTemplateData($widgetSettings, $isPreview)
     {

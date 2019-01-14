@@ -1,19 +1,19 @@
 [
     {
-        "identifier": "Newsletter2Go::MapsWidget",
-        "label": "Widget.mapsLabel",
+        "identifier": "Newsletter2Go::FormWidget",
+        "label": "Widget.FormLabel",
         "previewImageURL": "/images/n2go_widget_logo.svg",
         "type": "default",
         "position": 150,
-        "widgetClass": "Newsletter2Go\\Widgets\\MapsWidget",
+        "widgetClass": "Newsletter2Go\\Widgets\\FormWidget",
         "settings": {
             "formKey": {
                 "type": "text",
                 "required": true,
                 "defaultValue": "",
                 "options": {
-                    "name": "Widget.mapsFormKeyLabel",
-                    "tooltip": "Widget.mapsFormKeyTooltip"
+                    "name": "Widget.FormKeyLabel",
+                    "tooltip": "Widget.FormKeyTooltip"
                 }
             }
         }

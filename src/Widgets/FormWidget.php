@@ -11,11 +11,7 @@ class FormWidget extends BaseWidget
     protected function getTemplateData($widgetSettings, $isPreview)
     {
         $formKey = $widgetSettings["formKey"]["mobile"];
-
-        $pattern = '&quot;';
-        $replace = '"';
-
-        $formConfig = preg_replace($pattern,$replace,$widgetSettings["formConfig"]["mobile"]);
+        $formConfig = $widgetSettings["formConfig"]["mobile"];
 
         if (empty($formKey))
         {

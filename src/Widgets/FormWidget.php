@@ -19,7 +19,6 @@ class FormWidget extends BaseWidget
                 "formCode" => false
             ];
         }else {
-
             return [
                 "formCode" => [
                     "formKey" => $formKey,

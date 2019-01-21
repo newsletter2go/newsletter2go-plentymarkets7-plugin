@@ -1,6 +1,6 @@
 {% if formCode is not empty %}
     <div id="n2goForm">
-        <google-maps-widget class="widget widget-proportional" google-api-key="{{ geocoding_data.apiKey }}" address="{{ geocoding_data.address }}" :lat="{{ geocoding_data.lat }}" :lng="{{ geocoding_data.lng }}" :zoom="{{ widget.settings.zoom.mobile | default(16) }}"></google-maps-widget>
+        <form-widget google-api-key="{{ formCode.formKey | default('atuv6z83-tvgz83iv-6s') }}"></form-widget>
     </div>
     <script id="n2g_script">
         var config = {

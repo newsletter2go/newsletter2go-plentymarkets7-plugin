@@ -1,9 +1,11 @@
 {% if formCode is not empty %}
     <div id="n2goForm">
-        <form-widget google-api-key="{{ formCode.formKey | default('atuv6z83-tvgz83iv-6s') }}"></form-widget>
+        <form-widget formkey="{{ formCode.formKey | default('atuv6z83-tvgz83iv-6s') }}">Just a Test to have some Background</form-widget>
     </div>
     <script id="n2g_script">
-        var config = {
+        !function(e,t,n,c,r,a,i){e.Newsletter2GoTrackingObject=r,e[r]=e[r]||function(){(e[r].q=e[r].q||[]).push(arguments)},e[r].l=1*new Date,a=t.createElement(n),i=t.getElementsByTagName(n)[0],a.async=1,a.src=c,i.parentNode.insertBefore(a,i)}(window,document,"script","https://static.newsletter2go.com/utils.js","n2g");
+        n2g('create' ,'{{ formCode.formKey | default('atuv6z83-tvgz83iv-6s')}}');
+        n2g('subscribe:createForm', {{ formCode.formConfig | default('{
             "form": {
                 "class": "",
                 "style": ""
@@ -76,9 +78,6 @@
                 "style": "padding: 5px; border: 0px solid #fff; margin-top: 5px; width: 32px; height: 32px; cursor: pointer; display:inline;",
                 "style:active": "padding: 5px; border: 3px solid #ccc; margin-top: 5px; width: 32px; height: 32px; cursor: pointer;"
             }
-        };
-        !function(e,t,n,c,r,a,i){e.Newsletter2GoTrackingObject=r,e[r]=e[r]||function(){(e[r].q=e[r].q||[]).push(arguments)},e[r].l=1*new Date,a=t.createElement(n),i=t.getElementsByTagName(n)[0],a.async=1,a.src=c,i.parentNode.insertBefore(a,i)}(window,document,"script","https://static.newsletter2go.com/utils.js","n2g");
-        n2g('create' ,'{{ formCode.formKey }}');
-        n2g('subscribe:createForm', config, 'n2goForm');
+        };') }}, 'n2goForm');
     </script>
 {% endif %}

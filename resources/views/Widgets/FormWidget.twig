@@ -1,8 +1,7 @@
-<div id="n2goForm">Newsletter2Go Formular</div>
-
 {% if formCode is not empty %}
+    <div id="n2goForm">{{ formCode.formTitle | default('Anmeldeformular')}}</div>
     <script id="n2g_script">
-        var config = {"container": {"type": "div","class": "","style": ""},"row": {"type": "div","class": "","style": "margin-top: 15px;"},"columnLeft": {"type": "div","class": "","style": ""},"columnRight": {"type": "div","class": "","style": ""},"button": {"type": "button","style": "background-color: #000000;"},"label": {"type": "label","class": "","style": ""}}
+        var config = {{ formCode.formConfig | default('{"container": {"type": "div","class": "","style": ""},"row": {"type": "div","class": "","style": "margin-top: 15px;"},"columnLeft": {"type": "div","class": "","style": ""},"columnRight": {"type": "div","class": "","style": ""},"button": {"type": "button","style": "background-color: #000000;"},"label": {"type": "label","class": "","style": ""}}')}}
         !function(e,t,n,c,r,a,i){e.Newsletter2GoTrackingObject=r,e[r]=e[r]||function(){(e[r].q=e[r].q||[]).push(arguments)},e[r].l=1*new Date,a=t.createElement(n),i=t.getElementsByTagName(n)[0],a.async=1,a.src=c,i.parentNode.insertBefore(a,i)}(window,document,"script","https://static.newsletter2go.com/utils.js","n2g");
         n2g('create' ,'{{ formCode.formKey | default('atuv6z83-tvgz83iv-6s')}}');
         n2g('subscribe:createForm', config, 'n2goForm');

@@ -24,6 +24,14 @@
                     "name": "Widget.FormConfigLabel",
                     "tooltip": "Widget.FormConfigTooltip"
                 }
+            },
+            "formTitle": {
+                "type": "text",
+                "required": false,
+                "defaultValue":"",
+                "options": {
+                    "name": "Widget.FormTitleLabel"
+                }
             }
         }
     }

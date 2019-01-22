@@ -14,12 +14,4 @@ class FormServiceProvider extends ServiceProvider
 	{
  
 	}
- 
-	public function boot(Twig $twig, Dispatcher $eventDispatcher)
-    {
-        $eventDispatcher->listen('IO.Resources.Import', function (ResourceContainer $container)
-        {
-            $container->addScriptTemplate('Newsletter2Go::Content.Scripts');
-        }, 0);
-    }
 }

@@ -17,11 +17,11 @@ class FormWidget extends BaseWidget
         if (empty($formKey))
         {
             return [
-                "formCode" => false
+                "formInfo" => false
             ];
         }else {
             return [
-                "formCode" => [
+                "formInfo" => [
                     "formKey" => $formKey,
                     "formConfig" => $formConfig,
                     "formTitle" => $formTitle

@@ -28,7 +28,7 @@
             "formTitle": {
                 "type": "text",
                 "required": false,
-                "defaultValue":"",
+                "defaultValue":"Anmeldeformular",
                 "options": {
                     "name": "Widget.FormTitleLabel"
                 }

@@ -12,7 +12,6 @@ class FormWidget extends BaseWidget
     {
         $formTitle = $widgetSettings["formTitle"]["mobile"];
         $formKey = $widgetSettings["formKey"]["mobile"];
-        $formConfig = $widgetSettings["formConfig"]["mobile"];
 
         if (empty($formKey))
         {
@@ -24,7 +23,6 @@ class FormWidget extends BaseWidget
                 "formInfo" => [
                     "formTitle" => $formTitle,
                     "formKey" => $formKey,
-                    "formConfig" => $formConfig
                 ]
             ];
         }

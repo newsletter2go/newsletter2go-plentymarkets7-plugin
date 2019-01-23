@@ -23,15 +23,6 @@
                     "name": "Widget.FormKeyLabel",
                     "tooltip": "Widget.FormKeyTooltip"
                 }
-            },
-            "formConfig": {
-                "type": "text",
-                "required": false,
-                "defaultValue":"",
-                "options": {
-                    "name": "Widget.FormConfigLabel",
-                    "tooltip": "Widget.FormConfigTooltip"
-                }
             }
         }
     }

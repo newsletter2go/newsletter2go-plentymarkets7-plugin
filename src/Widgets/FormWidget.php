@@ -14,7 +14,7 @@ class FormWidget extends BaseWidget
         $formKey = $widgetSettings["formKey"]["mobile"];
         $formConfig = $widgetSettings["formConfig"]["mobile"];
 
-        if(empty($formConfig)){
+        if(!isset($formConfig)){
             $formConfig = '{"container": {"type": "div","class": "","style": ""},"row": {"type": "div","class": "","style": "margin-top: 15px;"},"columnLeft": {"type": "div","class": "","style": ""},"columnRight": {"type": "div","class": "","style": ""},"button": {"type": "button","style": "background-color: #000000;"},"label": {"type": "label","class": "","style": ""}}';
         }
 

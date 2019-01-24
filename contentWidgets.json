@@ -23,6 +23,14 @@
                     "name": "Widget.FormKeyLabel",
                     "tooltip": "Widget.FormKeyTooltip"
                 }
+            },
+            "formButton": {
+                "type": "text",
+                "required": false,
+                "defaultValue": "#00baff",
+                "options": {
+                    "name": "Widget.FormButtonLabel"
+                }
             }
         }
     }

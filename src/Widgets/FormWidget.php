@@ -13,6 +13,7 @@ class FormWidget extends BaseWidget
         $formTitle = $widgetSettings["formTitle"]["mobile"];
         $formKey = $widgetSettings["formKey"]["mobile"];
         $formButton = $widgetSettings["formAppearance"]["mobile"];
+        $formNumber = mt_rand (0, 999);
 
         if (empty($formKey))
         {
@@ -24,7 +25,8 @@ class FormWidget extends BaseWidget
                 "formInfo" => [
                     "formTitle" => $formTitle,
                     "formKey" => $formKey,
-                    "formButton" => $formButton
+                    "formButton" => $formButton,
+                    "randomString" => $formNumber
                 ]
             ];
         }

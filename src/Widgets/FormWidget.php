@@ -14,7 +14,7 @@ class FormWidget extends BaseWidget
         $formKey = $widgetSettings["formKey"]["mobile"];
         $formButton = $widgetSettings["formAppearance"]["mobile"];
 
-        $formRandomString = generateRandomString();
+        $formRandomString = $this->generateRandomString(10);
 
 
         if (empty($formKey))
@@ -34,7 +34,7 @@ class FormWidget extends BaseWidget
         }
     }
 
-    function generateRandomString($length = 10) {
+    protected function generateRandomString($length = 10){
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';

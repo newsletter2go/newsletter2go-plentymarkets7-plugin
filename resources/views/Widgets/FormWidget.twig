@@ -1,8 +1,7 @@
-{% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
 {% if formInfo is not empty %}
     <div id="n2goForm"><h2>{{ formInfo.formTitle}}</h2></div>
     <script id="n2g_script">
-        var config = {"container": {"type": "div","class": "nl2go-container"},"row": {"type": "div","class": "nl2go-row","style": "margin-top: 15px;"},"columnLeft": {"type": "div","class": "nl2go-columnLeft"},"columnRight": {"type": "div","class": "nl2go-columnRight"},"button": {"type": "button", "class":"widget-{{ widget.settings.appearance.mobile | default('primary')  }}"},"label": {"type": "label","class": "nl2go-label"}}
+        var config = {"container": {"type": "div","class": "nl2go-container"},"row": {"type": "div","class": "nl2go-row","style": "margin-top: 15px;"},"columnLeft": {"type": "div","class": "nl2go-columnLeft"},"columnRight": {"type": "div","class": "nl2go-columnRight"},"button": {"type": "button", "class":"btn-{{ formInfo.formButton | default('primary') }}","label": {"type": "label","class": "nl2go-label"}}
         !function(e,t,n,c,r,a,i){e.Newsletter2GoTrackingObject=r,e[r]=e[r]||function(){(e[r].q=e[r].q||[]).push(arguments)},e[r].l=1*new Date,a=t.createElement(n),i=t.getElementsByTagName(n)[0],a.async=1,a.src=c,i.parentNode.insertBefore(a,i)}(window,document,"script","https://static.newsletter2go.com/utils.js","n2g");
         n2g('create' ,'{{ formInfo.formKey }}');
         n2g('subscribe:createForm', config, 'n2goForm');

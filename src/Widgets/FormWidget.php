@@ -12,7 +12,7 @@ class FormWidget extends BaseWidget
     {
         $formTitle = $widgetSettings["formTitle"]["mobile"];
         $formKey = $widgetSettings["formKey"]["mobile"];
-        $formButton = $widgetSettings["formButton"]["mobile"];
+        $formButton = $widgetSettings["formAppearance"]["mobile"];
 
         if (empty($formKey))
         {

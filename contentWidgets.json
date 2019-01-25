@@ -24,15 +24,7 @@
                     "tooltip": "Widget.FormKeyTooltip"
                 }
             },
-            "formButton": {
-                "type": "text",
-                "required": false,
-                "defaultValue": "#00baff",
-                "options": {
-                    "name": "Widget.FormButtonLabel"
-                }
-            },
-            "FormAppearance": {
+            "formAppearance": {
                 "type": "select",
                 "required": true,
                 "defaultValue": "primary",

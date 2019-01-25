@@ -28,7 +28,7 @@ class FormWidget extends BaseWidget
                     "formTitle" => $formTitle,
                     "formKey" => $formKey,
                     "formButton" => $formButton,
-                    "randomString" => $formRandomString
+                    "formTarget" => $formRandomString
                 ]
             ];
         }

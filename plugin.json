@@ -1,5 +1,5 @@
 {
-    "serviceProvider": "Newsletter2Go\\Providers\\ServiceProvider",
+    "serviceProvider": "Newsletter2Go\\Providers\\Newsletter2goServiceProvider",
     "version": "1.0.3",
     "name": "Newsletter2Go",
     "marketplaceName": { "de": "Newsletter2Go", "en": "Newsletter2Go" },

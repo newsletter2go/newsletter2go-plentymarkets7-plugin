@@ -8,7 +8,7 @@ use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Templates\Twig;
  
-class FormServiceProvider extends ServiceProvider
+class FormServiceProvider extends BaseRouteServiceProvider
 {
 	public function register()
 	{

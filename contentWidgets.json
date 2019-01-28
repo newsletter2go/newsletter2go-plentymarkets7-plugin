@@ -21,7 +21,7 @@
                 "defaultValue": "",
                 "options": {
                     "name": "Widget.FormKeyLabel",
-                    "tooltip": "Widget.FormKeyTooltip"
+                    "tooltipText": "Widget.FormKeyTooltip"
                 }
             },
             "formAppearance": {

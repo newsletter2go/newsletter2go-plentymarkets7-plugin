@@ -17,7 +17,7 @@
     "phone": "+49 561 98 681 100",
     "categories": ["3521"],
     "keywords": ["plentymarkets", "plugins", "layout", "widget", "shopbuilder", "shop builder"],
-    "type": "Integration",
+    "type": "integration",
     "require": ["Ceres", "IO"],
     "namespace": "Newsletter2Go"
 }

@@ -7,3 +7,4 @@ Our general Help-Docs: https://help.newsletter2go.com/
 ## Email
  support@newsletter2go.com
  
+

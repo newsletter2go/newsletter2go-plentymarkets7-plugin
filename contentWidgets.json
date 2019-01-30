@@ -1,0 +1,70 @@
+[
+    {
+        "identifier": "Newsletter2Go::FormWidget",
+        "label": "Widget.FormLabel",
+        "previewImageURL": "/images/n2go_widget_logo.svg",
+        "type": "default",
+        "position": 150,
+        "widgetClass": "Newsletter2Go\\Widgets\\FormWidget",
+        "settings": {
+            "formTitle": {
+                "type": "text",
+                "required": false,
+                "defaultValue":"Anmeldeformular",
+                "options": {
+                    "name": "Widget.FormTitleLabel"
+                }
+            },
+            "formKey": {
+                "type": "text",
+                "required": true,
+                "defaultValue": "",
+                "options": {
+                    "name": "Widget.FormKeyLabel",
+                    "tooltipText": "Widget.FormKeyTooltip"
+                }
+            },
+            "formAppearance": {
+                "type": "select",
+                "required": true,
+                "defaultValue": "primary",
+                "options": {
+                    "name": "Widget.FormAppearanceLabel",
+                    "tooltipText": "Widget.FormAppearanceTooltip",
+                    "listBoxValues": [
+                        {
+                            "value": "primary",
+                            "caption": "Widget.FormAppearancePrimary",
+                            "position": 0
+                        },
+                        {
+                            "value": "secondary",
+                            "caption": "Widget.FormAppearanceSecondary",
+                            "position": 1
+                        },
+                        {
+                            "value": "success",
+                            "caption": "Widget.FormAppearanceSuccess",
+                            "position": 2
+                        },
+                        {
+                            "value": "info",
+                            "caption": "Widget.FormAppearanceInfo",
+                            "position": 3
+                        },
+                        {
+                            "value": "warning",
+                            "caption": "Widget.FormAppearanceWarning",
+                            "position": 4
+                        },
+                        {
+                            "value": "danger",
+                            "caption": "Widget.FormAppearanceDanger",
+                            "position": 5
+                        }
+                    ]
+                }
+            }
+        }
+    }
+]

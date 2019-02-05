@@ -14,5 +14,8 @@
 - Changes on the filter for opted in newsletter recipients
  
 ## v1.0.4 (2019-01-29) 
+- add missing changelogs to Plugin
+
+## v1.0.5 (2019-02-05) 
 - Widget for the Shopbuilder
 - Implements a JavaScript-Snippet to use Newsletter2Go SubscribeForms

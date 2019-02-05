@@ -12,7 +12,10 @@
 ## v1.0.3 (2018-06-28) 
 - Alle möglichen Preisfelder werden bei der 1-Klick-Produktübernahme übertragen
 - Filter Anpassung für das übertragen von Bestätigten Newsletter Empfängern
- 
+
 ## v1.0.4 (2019-01-29) 
+- fehlende ChangeLogs im Plugin nachgetragen
+
+## v1.0.5 (2019-02-05) 
 - Widget für den ShopBuilder
 - Ermöglich das einbinden von JavaScriptSnippet für Newsletter2Go Formulare

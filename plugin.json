@@ -3,7 +3,7 @@
     "version": "1.0.6",
     "name": "Newsletter2Go",
     "marketplaceName": { "de": "Newsletter2Go", "en": "Newsletter2Go" },
-    "description"       : "Newsletter2Go ist eine E-Mail Marketing Software, mit der Sie mühelos professionelle Newsletter und anspruchsvolle automatisierte Kampagnen erstellen und versenden können. Mit der Plentymarkets-Newsletter-Integration von Newsletter2Go verbinden Sie Ihren Shop im Handumdrehen mit der Newsletter Software.",
+    "description"       : "Benötigt folgende Plugins ab Version 1.0.6: Ceres, IO und ElasticSearch. Plugin Version 1.0.3 funktioniert auch ohne Ceres, IO und ElasticSearch. Newsletter2Go ist eine E-Mail Marketing Software, mit der Sie mühelos professionelle Newsletter und anspruchsvolle automatisierte Kampagnen erstellen und versenden können. Mit der Plentymarkets-Newsletter-Integration von Newsletter2Go verbinden Sie Ihren Shop im Handumdrehen mit der Newsletter Software.",
     "author": "Newsletter2Go",
     "license": "GPL-3.0",
     "pluginIcon": "icon_plugin_xs.png",

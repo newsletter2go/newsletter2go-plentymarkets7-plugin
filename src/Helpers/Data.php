@@ -160,6 +160,15 @@ class Data
 
             }
 
+            if($subscribed){
+                if (!(strtotime($recipient['confirmedTimestamp']) < 0 ||
+                    strtotime($recipient['confirmedTimestamp']) === false)) {
+                    $recipient['newsletterAllowanceAt'] = 1;
+                } else {
+                    continue;
+                }
+            }
+
             if ($recipient['contactId']) {
                 $recipientContact = $this->repositoryContract->findContactById($recipient['contactId'])->toArray();
                 if ($recipientContact) {

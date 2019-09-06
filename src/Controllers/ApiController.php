@@ -64,33 +64,35 @@ class ApiController extends Controller
      */
     public function customers(Request $request)
     {
-        $subscribed = filter_var(
-            $request->get('newsletterSubscribersOnly', false),
-            FILTER_VALIDATE_BOOLEAN
-        );
-        $page = $request->get('page', 1);
-        $limit = $request->get('limit', 50);
-        $hours = $request->get('hours', 0);
-        $emails = $request->get('emails', []);
-        $group = $request->get('group');
+        return array('wasSollderScheiß' => 'mistkack');
 
-        if (!is_numeric($hours)) {
-            return ['success' => false, 'message' => 'Hours parameter must be numeric value.'];
-        } else {
-            $hours = intval($hours);
-        }
-
-        if (!isset($group)) {
-            return ['success' => false, 'message' => 'Group parameter is required.'];
-        }
-
-        if (strpos($group, 'newsletter_') === 0) {
-            $group = str_replace('newsletter_', '', $group);
-
-            return $this->dataHelper->getRecipients(intval($group), $subscribed, $hours, $emails, $page, $limit);
-        } else {
-            return $this->dataHelper->getContacts(intval($group), $subscribed, $hours, $emails, $page, $limit);
-        }
+//        $subscribed = filter_var(
+//            $request->get('newsletterSubscribersOnly', false),
+//            FILTER_VALIDATE_BOOLEAN
+//        );
+//        $page = $request->get('page', 1);
+//        $limit = $request->get('limit', 50);
+//        $hours = $request->get('hours', 0);
+//        $emails = $request->get('emails', []);
+//        $group = $request->get('group');
+//
+//        if (!is_numeric($hours)) {
+//            return ['success' => false, 'message' => 'Hours parameter must be numeric value.'];
+//        } else {
+//            $hours = intval($hours);
+//        }
+//
+//        if (!isset($group)) {
+//            return ['success' => false, 'message' => 'Group parameter is required.'];
+//        }
+//
+//        if (strpos($group, 'newsletter_') === 0) {
+//            $group = str_replace('newsletter_', '', $group);
+//
+//            return $this->dataHelper->getRecipients(intval($group), $subscribed, $hours, $emails, $page, $limit);
+//        } else {
+//            return $this->dataHelper->getContacts(intval($group), $subscribed, $hours, $emails, $page, $limit);
+//        }
     }
 
 }

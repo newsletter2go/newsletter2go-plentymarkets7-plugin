@@ -19,3 +19,6 @@
 ## v1.0.5 (2019-02-05) 
 - Widget for the Shopbuilder
 - Implements a JavaScript-Snippet to use Newsletter2Go SubscribeForms
+
+## v1.0.6 (2019-09-06) 
+- Improvments of the filter for getting only confirmed recipients from newsletter-folders

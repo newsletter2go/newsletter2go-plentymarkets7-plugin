@@ -6,7 +6,6 @@ Recipient data (including contact fields and groups) can be synchronized with yo
 
 - 1-Click Product Transfer (fill product-blocks by entering the product ID; note that a premium newsletter template is required)
 - Automatic contact synchronization (incl. traits and groups)
-- E-commerce conversion tracking
 - GDPR conform Double-Opt-In process with Newsletter2go subscribe forms in the Shopbuilder
 
 ####How Newsletter2Go Benefits You:

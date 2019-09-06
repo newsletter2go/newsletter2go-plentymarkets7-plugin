@@ -139,7 +139,6 @@ class Data
             $page,
             $limit,
             ['folderId' => $groupId],
-            $subscribed,
             []
         );
         $hasNextPage = !$paginatedResult->isLastPage();

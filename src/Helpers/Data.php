@@ -139,6 +139,7 @@ class Data
             $page,
             $limit,
             ['folderId' => $groupId],
+            $subscribed,
             []
         );
         $hasNextPage = !$paginatedResult->isLastPage();
@@ -157,12 +158,6 @@ class Data
             if (!empty($emails) && !in_array($recipient['email'], $emails)) {
                 continue;
 
-            }
-            $recipient['newsletterAllowanceAt'] = !(strtotime($recipient['confirmedTimestamp']) < 0 ||
-                strtotime($recipient['confirmedTimestamp']) === false);
-            // if recipient is not confirmed then he is not subscribed
-            if (!$recipient['newsletterAllowanceAt']) {
-                continue;
             }
 
             if ($recipient['contactId']) {

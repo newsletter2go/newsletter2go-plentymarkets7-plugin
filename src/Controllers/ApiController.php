@@ -36,7 +36,7 @@ class ApiController extends Controller
      */
     public function version()
     {
-        return ['data' => '4.0.03', 'success' => true];
+        return ['data' => '4.0.06', 'success' => true];
     }
 
     /**
@@ -84,13 +84,7 @@ class ApiController extends Controller
             return ['success' => false, 'message' => 'Group parameter is required.'];
         }
 
-        if (strpos($group, 'newsletter_') === 0) {
-            $group = str_replace('newsletter_', '', $group);
-
-            return $this->dataHelper->getRecipients(intval($group), $subscribed, $hours, $emails, $page, $limit);
-        } else {
-            return $this->dataHelper->getContacts(intval($group), $subscribed, $hours, $emails, $page, $limit);
-        }
+        return $this->dataHelper->getContacts(intval($group), $subscribed, $hours, $emails, $page, $limit);
     }
 
 }

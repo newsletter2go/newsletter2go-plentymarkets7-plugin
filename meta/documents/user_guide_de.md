@@ -7,7 +7,6 @@ Die Empfängerdaten inklusive Merkmalen und Gruppen sowie die Produktinformation
 
 - 1-Klick-Produktübernahme (Produktbausteine anhand einer Produkt-ID automatisch befüllen. Premium-Newsletter-Vorlage nötig)
 - Automatische Empfängersynchronisation inkl. Merkmale und Gruppen
--  E-Commerce-Conversion-Tracking
 - DSGVO konformer Double-Opt-In mit den Newsletter2Go Formulaten im Shopbuilder
 
 #### So profitieren Sie von Newsletter2Go

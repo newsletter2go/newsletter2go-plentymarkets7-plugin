@@ -19,3 +19,6 @@
 ## v1.0.5 (2019-02-05) 
 - Widget für den ShopBuilder
 - Ermöglich das einbinden von JavaScriptSnippet für Newsletter2Go Formulare
+
+## v1.0.6 (2019-09-06) 
+- Verbesserung des Filters um  bestätigte Empfänger aus Newsletter-Ordnern zu holen

@@ -118,7 +118,8 @@ class Data
             'hasNextPage' => $hasNextPage,
             'limit' => $limit,
             'page' => $page,
-            'totalPages' => $paginatedResult->getLastPage()
+            'totalPages' => $paginatedResult->getLastPage(),
+            'version' => '1.0.7',
         ];
     }
 }

@@ -1,6 +1,6 @@
 {
     "serviceProvider": "Newsletter2Go\\Providers\\Newsletter2goServiceProvider",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "name": "Newsletter2Go",
     "marketplaceName": { "de": "Newsletter2Go", "en": "Newsletter2Go" },
     "description"       : "Newsletter2Go ist eine E-Mail Marketing Software, mit der Sie mühelos professionelle Newsletter und anspruchsvolle automatisierte Kampagnen erstellen und versenden können. Mit der Plentymarkets-Newsletter-Integration von Newsletter2Go verbinden Sie Ihren Shop im Handumdrehen mit der Newsletter Software.",

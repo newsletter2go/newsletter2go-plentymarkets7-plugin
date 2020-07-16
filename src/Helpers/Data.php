@@ -81,7 +81,13 @@ class Data
      */
     public function getContacts(int $groupId, bool $subscribed, int $hours, array $emails, int $page, int $limit): array
     {
-        $paginatedResult = $this->repositoryContract->getContactList([], [], ['*'], $page, $limit);
+        $filters = [];
+
+        if (!empty($groupId)) {
+            $filters['classId'] = $groupId;
+        }
+
+        $paginatedResult = $this->repositoryContract->getContactList($filters, [], ['*'], $page, $limit);
         $hasNextPage = !$paginatedResult->isLastPage();
         $contacts = $paginatedResult->getResult();
         $filteredContacts = [];
@@ -99,10 +105,6 @@ class Data
                 continue;
             }
 
-            if ($contact['classId'] !== $groupId) {
-                continue;
-            }
-
             if ($subscribed && $contact['newsletterAllowanceAt'] === null) {
                 continue;
             }
@@ -116,7 +118,8 @@ class Data
             'hasNextPage' => $hasNextPage,
             'limit' => $limit,
             'page' => $page,
-            'totalPages' => $paginatedResult->getLastPage()
+            'totalPages' => $paginatedResult->getLastPage(),
+            'version' => '1.0.7',
         ];
     }
 }

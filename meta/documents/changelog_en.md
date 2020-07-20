@@ -22,6 +22,3 @@
 
 ## v1.0.6 (2019-09-06) 
 - Improvments of the filter for getting only confirmed recipients from newsletter-folders
-
-## v1.0.7 (2020-07-16) 
-- Getting customers improved  

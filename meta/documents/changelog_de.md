@@ -22,6 +22,3 @@
 
 ## v1.0.6 (2019-09-06) 
 - Verbesserung des Filters um  bestätigte Empfänger aus Newsletter-Ordnern zu holen
-
-## v1.0.7 (2020-07-16) 
-- Verbesserung der Synchronisation von Kontakten 
